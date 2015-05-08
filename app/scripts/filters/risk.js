@@ -36,4 +36,18 @@ angular.module('blockintelApp')
           return input;
       }
     };
+  })
+  .filter('riskTrace', function () {
+    return function (input) {
+      switch(input) {
+        case 0:
+          return '';
+        case 1:
+          return '- (Exchange)';
+        case 2:
+          return '- (Suspect)';
+        default:
+          return input;
+      }
+    };
   });

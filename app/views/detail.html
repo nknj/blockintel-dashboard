@@ -6,7 +6,7 @@
     <a href="#/transactions">&lt;&lt;</a>
     <span>Transaction Details for #{{ txn.id }}</span>
   </div>
-  <div class="jumbotron">
+  <p>
     <dl>
       <dt>Exchange</dt>
       <dd>{{ txn.exchange }}</dd>
@@ -14,12 +14,16 @@
       <dd>{{ txn.category }}</dd>
       <dt>Risk Level</dt>
       <dd>{{ txn.risk | riskLevel }}</dd>
-      <dd>
-        <button class="btn btn-default">View Graph</button>
-        <button class="btn btn-default">Contact Exchange</button>
-      </dd>
     </dl>
-  </div>
+  </p>
+  <p>
+    <h5>Trace:</h5>
+    <ol>
+      <li ng-repeat="t in trace">{{ t.address }} <span>{{ t.type | riskTrace }}</span></li>
+    </ol>
+  </p>
+  <div id="graphcontainer"></div>
+
 </div>
 
 <div ng-include="'views/_footer.html'"></div>

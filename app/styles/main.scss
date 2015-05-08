@@ -14,6 +14,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  margin: 0;
+}
+
+
+#graphcontainer {
+  width: 100%;
+  height: 250px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
