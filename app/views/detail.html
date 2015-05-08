@@ -1,0 +1,25 @@
+<div ng-include="'views/_header.html'"></div>
+
+<!-- Login -->
+<div class="container">
+  <div class="h3">
+    <a href="#/transactions">&lt;&lt;</a>
+    <span>Transaction Details for #{{ txn.id }}</span>
+  </div>
+  <div class="jumbotron">
+    <dl>
+      <dt>Exchange</dt>
+      <dd>{{ txn.exchange }}</dd>
+      <dt>Risk Category</dt>
+      <dd>{{ txn.category }}</dd>
+      <dt>Risk Level</dt>
+      <dd>{{ txn.risk | riskLevel }}</dd>
+      <dd>
+        <button class="btn btn-default">View Graph</button>
+        <button class="btn btn-default">Contact Exchange</button>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<div ng-include="'views/_footer.html'"></div>

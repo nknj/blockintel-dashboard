@@ -1,0 +1,26 @@
+<div ng-include="'views/_header.html'"></div>
+
+<!-- Login -->
+<div class="container">
+  <div class="h3">Suspicious Transactions</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Transaction #</th>
+        <th>Client</th>
+        <th>Risk Category</th>
+        <th>Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="txn in transactions" class="{{ txn.risk | riskClass }}">
+        <td>{{ txn.id }}</td>
+        <td>{{ txn.exchange }}</td>
+        <td>{{ txn.category }}</td>
+        <td><a ng-href="#/transactions/{{ txn.id }}">&gt;&gt;</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div ng-include="'views/_footer.html'"></div>
