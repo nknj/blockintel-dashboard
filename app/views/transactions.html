@@ -2,25 +2,37 @@
 
 <!-- Login -->
 <div class="container">
-  <div class="h3">Suspicious Transactions</div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Transaction #</th>
-        <th>Client</th>
-        <th>Risk Category</th>
-        <th>Detail</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="txn in transactions" class="{{ txn.risk | riskClass }}">
-        <td>{{ txn.id }}</td>
-        <td>{{ txn.exchange }}</td>
-        <td>{{ txn.category }}</td>
-        <td><a ng-href="#/transactions/{{ txn.id }}">&gt;&gt;</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <h1>Suspicious Transactions</h1>
+
+  <div ng-repeat="client in clients" class="jumbotron">
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="text-left">{{ client }}</h4>
+      </div>
+      <div class="col-md-6">
+        <h4 class="text-right">Score: {{ getClientScore(client) }}%</h4>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Transaction #</th>
+          <th>Risk Category</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="txn in getClientTxns(client)" class="{{ txn.risk | riskClass }} text-left">
+          <td>{{ txn.id }}</td>
+          <td>{{ txn.category }}</td>
+          <td><a ng-href="#/transactions/{{ txn.id }}">&gt;&gt;</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
 
 <div ng-include="'views/_footer.html'"></div>

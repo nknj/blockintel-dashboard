@@ -9,7 +9,7 @@
  */
 angular.module('blockintelApp')
   .controller('DetailCtrl', function ($scope, $routeParams, transactions) {
-    $scope.txn = transactions.get($routeParams.id);
+    $scope.txn = transactions.getTxn($routeParams.id);
 
     /*
     * Types

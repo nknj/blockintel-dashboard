@@ -9,5 +9,13 @@
  */
 angular.module('blockintelApp')
   .controller('TransactionsCtrl', function ($scope, transactions) {
-    $scope.transactions = transactions.getAll();
+    $scope.clients = transactions.getClients();
+
+    $scope.getClientScore = function (client) {
+      return transactions.getClientScore(client);
+    };
+
+    $scope.getClientTxns = function (client) {
+      return transactions.getClientTxns(client);
+    };
   });
