@@ -17,7 +17,8 @@ angular.module('blockintelApp')
           {
             id: 'AX3294',
             risk: 3,
-            category: 'Terrorism'
+            category: 'Terrorism',
+            img: '/images/isis-bitstamp.png'
           },
           {
             id: '34967A',
@@ -75,12 +76,14 @@ angular.module('blockintelApp')
               id: clientTxns[j].id,
               exchange: clients[i],
               risk: clientTxns[j].risk,
-              category: clientTxns[j].category
+              category: clientTxns[j].category,
+              img: clientTxns[i].img
             };
           }
         }
       }
     };
+
 
     return {
       getClients: function () {

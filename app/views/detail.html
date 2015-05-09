@@ -2,27 +2,33 @@
 
 <!-- Login -->
 <div class="container">
-  <div class="h3">
-    <a href="#/transactions">&lt;&lt;</a>
-    <span>Transaction Details for #{{ txn.id }}</span>
+  <div class="h1">
+    Suspicious Transaction Report #{{ txn.id }}
   </div>
-  <p>
-    <dl>
-      <dt>Exchange</dt>
-      <dd>{{ txn.exchange }}</dd>
-      <dt>Risk Category</dt>
-      <dd>{{ txn.category }}</dd>
-      <dt>Risk Level</dt>
-      <dd>{{ txn.risk | riskLevel }}</dd>
-    </dl>
-  </p>
+  <a href="#/transactions">Back to list</a>
+    <div class="kvpair">
+      <span class="k">Exchange</span>
+      <span class="v">{{ txn.exchange }}</span>
+    </div>
+    <div class="kvpair">
+      <span class="k">Risk Category</span>
+      <span class="v">{{ txn.category }}</span>
+    </div>
+    <div class="kvpair">
+      <span class="k">Risk Level</span>
+      <span class="v">{{ txn.risk | riskLevel }}</span>
+    </div>
   <p>
     <h5>Trace:</h5>
     <ol>
       <li ng-repeat="t in trace">{{ t.address }} <span>{{ t.type | riskTrace }}</span></li>
     </ol>
   </p>
-  <div id="graphcontainer"></div>
+
+  <div class="graph-title">Transaction Graph:</div>
+  <a href="{{txn.img}}">
+    <img src="{{txn.img}}" class="graph"/>
+  </a>
 
 </div>
 

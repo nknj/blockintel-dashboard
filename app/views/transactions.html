@@ -4,13 +4,19 @@
 <div class="container">
   <h1>Suspicious Transactions</h1>
 
-  <div ng-repeat="client in clients" class="jumbotron">
+  <div ng-repeat="client in clients" class="client">
     <div class="row">
       <div class="col-md-6">
-        <h4 class="text-left">{{ client }}</h4>
+        <h4 class="text-left client-name">{{ client }}</h4>
       </div>
       <div class="col-md-6">
-        <h4 class="text-right">Score: {{ getClientScore(client) }}%</h4>
+        <h4 class="text-right">
+          Compliance Score:
+            <span class="label {{labelClass(client)}}">
+              {{ getClientScore(client) }}%
+            </span>
+
+        </h4>
       </div>
     </div>
 
@@ -26,7 +32,9 @@
         <tr ng-repeat="txn in getClientTxns(client)" class="{{ txn.risk | riskClass }} text-left">
           <td>{{ txn.id }}</td>
           <td>{{ txn.category }}</td>
-          <td><a ng-href="#/transactions/{{ txn.id }}">&gt;&gt;</a></td>
+          <td><a ng-href="#/transactions/{{ txn.id }}" class="btn btn-primary">
+            View Report
+          </a></td>
         </tr>
       </tbody>
     </table>
